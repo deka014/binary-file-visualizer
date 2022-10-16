@@ -1,4 +1,4 @@
-import sys , png
+import sys , png , os
 
 # Decoded - split array into chunks of n elements having values 0 to 255 
 
@@ -14,6 +14,22 @@ def pixel_chunks_hex(l, n = 3):
 
 
 if __name__ == "__main__":
+
+    if len(sys.argv) < 2:
+        print("Usage: python convert_To_Image.py <file_name>")
+        sys.exit(-1)
+
+    inputFile = sys.argv[1]
+    if len(sys.argv) != 3 :
+        base = os.path.basename(inputFile)
+        if "." in base:
+            base, _ = base.rsplit(".", 1)
+        outputFile = base + ".png"
+    else :
+        outputFile = sys.argv[2]
+
+        
+
 
     # Read the file 
     with open(sys.argv[1], "rb") as f:
@@ -34,7 +50,7 @@ if __name__ == "__main__":
 
         
 
-    # Write the image
-    png.from_array(pixelArray, "RGB").save("./output/"+sys.argv[2])
+    # if output is not specified 
+    png.from_array(pixelArray, "RGB").save("./output/"+ outputFile)
 
 
