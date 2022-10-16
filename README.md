@@ -1,4 +1,4 @@
-# binary-file-visualizer Version 1.0
+# binary-file-visualizer Version 1.0 (I will evolve to be better :_) )
 I can convert all binary files like pdf, jpg, png, pcap into images using its byte Array
 
 
